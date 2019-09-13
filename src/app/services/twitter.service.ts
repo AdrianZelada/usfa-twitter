@@ -7,11 +7,24 @@ import {UserTwitter} from './users-twitter';
   providedIn: 'root'
 })
 export class TwitterService {
-
+  users: Array<string> = [];
+  keyLocal: string = 'twitter-user';
   constructor() { }
 
   getUsers() {
     return UserTwitter;
+  }
+
+  userFromLocal() {
+    const users = localStorage.getItem(this.keyLocal);
+    return users ? JSON.parse(users) : [];
+  }
+
+  editUserLocal(ind: any ,name: string) {
+    this.users = this.users.map((data, index) => {
+      return ind === index ? data : name;
+    });
+    localStorage.setItem(this.keyLocal, JSON.stringify(this.users));
   }
 
 }
