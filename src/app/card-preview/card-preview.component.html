@@ -1,29 +1,33 @@
-<article class="material-card Red">
+<article class="material-card Light-Blue">
   <h2>
-    <span>Adrian Zelada</span>
+    <span>{{user.name}}</span>
     <strong>
       <i class="fa fa-fw fa-star"></i>
-      The Deer Hunter
+      <a target="_blank" [href]="user.href">@{{user.screen_name}}</a>
     </strong>
   </h2>
   <div class="mc-content">
     <div class="img-container">
-      <img class="img-responsive" src="https://dl.dropboxusercontent.com/u/2691310/github/material-card/thumb-christopher-walken.jpg">
+      <img class="img-responsive" [src]="user.profile_image_url">
     </div>
     <div class="mc-description">
-      He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...
+      {{user.status?.text}}
+      <!--He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...-->
     </div>
   </div>
   <a class="mc-btn-action">
     <i class="fa fa-bars"></i>
   </a>
-  <div class="mc-footer">
+  <div class="mc-footer margin-btn">
     <h4>
       Social
     </h4>
-    <a class="fa fa-fw fa-facebook"></a>
-    <a class="fa fa-fw fa-twitter"></a>
-    <a class="fa fa-fw fa-linkedin"></a>
-    <a class="fa fa-fw fa-google-plus"></a>
+    <button class="btn btn-primary" type="button">
+      Followers <span class="badge">{{user.followers_count}}</span>
+    </button>
+
+    <button class="btn btn-default" type="button">
+      Friends <span class="badge">{{user.friends_count}}</span>
+    </button>
   </div>
 </article>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {UserTwitter} from '../services/users-twitter';
 
 @Component({
   selector: 'app-card-preview',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-preview.component.scss']
 })
 export class CardPreviewComponent implements OnInit {
+  @Input() user: any = {};
+
 
   constructor() { }
 

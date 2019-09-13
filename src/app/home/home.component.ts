@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TwitterService} from '../services/twitter.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  users: Array<any> = [];
+  constructor(private twitterService: TwitterService) { }
 
   ngOnInit() {
+    this.users = this.twitterService.getUsers().map((user: any) => {
+      user.href = `http://www.twitter.com/${user.screen_name}`;
+      return user;
+    });
   }
 
 }
