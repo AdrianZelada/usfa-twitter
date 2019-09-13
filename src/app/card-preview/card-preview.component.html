@@ -1,4 +1,4 @@
-<article class="material-card Light-Blue">
+<article class="material-card Light-Blue" [ngClass]="{'mc-active':showContent}">
   <h2>
     <span>{{user.name}}</span>
     <strong>
@@ -15,8 +15,8 @@
       <!--He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...-->
     </div>
   </div>
-  <a class="mc-btn-action">
-    <i class="fa fa-bars"></i>
+  <a class="mc-btn-action" (click)="toggle()">
+    <i [class]="icons[iconState]"></i>
   </a>
   <div class="mc-footer margin-btn">
     <h4>
